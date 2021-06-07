@@ -43,8 +43,6 @@ var types = _interopRequireWildcard(require("../types"));
 
 var _errors = require("../errors");
 
-var openpgp = _interopRequireWildcard(require("openpgp"));
-
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -58,6 +56,21 @@ var SM2 = require('sm-crypto').sm2;
 var bcrypt = require('bcryptjs');
 
 var nacl = require('tweetnacl');
+
+var openpgp;
+var node = false;
+
+try {
+  node = Object.prototype.toString.call(global.process) === '[object process]';
+} catch (e) {}
+
+if (node) {
+  console.log('1111111111111');
+  openpgp = require('openpgp/dist/node/openpgp.js');
+} else {
+  console.log('22222222222222');
+  openpgp = require('openpgp/dist/openpgp.js');
+}
 /**
  * Crypto Utils
  * @hidden
