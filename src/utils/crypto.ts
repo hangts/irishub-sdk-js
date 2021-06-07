@@ -14,10 +14,19 @@ import { SdkError, CODES } from '../errors';
 const Sha256 = require('sha256');
 const Secp256k1 = require('secp256k1');
 const SM2 = require('sm-crypto').sm2;
-
-import * as openpgp from 'openpgp';
 const bcrypt = require('bcryptjs');
 const nacl = require('tweetnacl');
+
+let openpgp:any;
+let node = false;
+try {node = (Object.prototype.toString.call(global.process) === '[object process]');}catch (e) {}
+if (node) {
+  console.log('1111111111111');
+  openpgp = require('openpgp/dist/node/openpgp.js');
+}else{
+  console.log('22222222222222');
+  openpgp = require('openpgp/dist/openpgp.js');
+}
 
 /**
  * Crypto Utils
