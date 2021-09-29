@@ -182,6 +182,11 @@ export class Protobuf {
             messageModelClass = types.MsgTransfer.getModelClass();
             break;
         }
+        //tibc
+        case types.TxType.MsgNftTransfer: {
+          messageModelClass = types.MsgNftTransfer.getModelClass();
+          break;
+      }
         default: {
             throw new SdkError("not exist tx type",CODES.InvalidType);
         }

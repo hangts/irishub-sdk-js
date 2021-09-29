@@ -12,10 +12,10 @@ for dir in $proto_dirs; do
   $(find "${dir}" -maxdepth 1 -name '*.proto')
 
   # command to generate gRPC web (*_grpc_web_pb.js in respective modules) files
-  protoc \
-  -I "./proto/third_party" \
-  -I "./proto" \
-  --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./src/types/proto-types\
-  $(find "${dir}" -maxdepth 1 -name '*.proto')
+  # protoc \
+  # -I "./proto/third_party" \
+  # -I "./proto" \
+  # --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./src/types/proto-types\
+  # $(find "${dir}" -maxdepth 1 -name '*.proto')
 
 done

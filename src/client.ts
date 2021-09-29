@@ -187,6 +187,13 @@ export class Client {
     return this._ibc;
   }
 
+  /** Tibc module */
+  private _tibc?: modules.Tibc;
+  get tibc():modules.Tibc{
+    if (!this._tibc) {this._tibc = new modules.Tibc(this)}
+    return this._tibc;
+  }
+
   /** IRISHub SDK Constructor */
   constructor(config: DefaultClientConfig) {
     this.config = config;

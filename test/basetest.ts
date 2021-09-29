@@ -31,11 +31,11 @@ export class BaseTest {
 
   static getClient(): Client {
     let config = {
-        node: 'http://192.168.150.40:26657',
+        node: 'http://10.1.4.20:23657/',
         chainNetwork: iris.types.ChainNetwork.Iris,
-        chainId: 'iris',
-        gas: '20000000',
-        fee: { denom: 'udev', amount: '200' },
+        chainId: 'test',
+        gas: '2000000',
+        fee: { denom: 'stake', amount: '20' },
     };
     let privateKey = '1E120611404C4B1B98FC899A8026A6A9823C35985DA3C5ED3FF57C170C822F60'
 
@@ -53,7 +53,7 @@ export class BaseTest {
       .withKeyDAO(new TestKeyDAO())
       .withRpcConfig({ timeout: Consts.timeout });
 
-    client.keys.recover(
+    let account = client.keys.recover(
       Consts.keyName,
       Consts.keyPassword,
       'emerge faculty front embark salute ring broken canyon vibrant arena pair truck joy credit milk tube vast private double exercise change drip lemon time'

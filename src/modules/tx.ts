@@ -69,7 +69,6 @@ export class Tx {
   ) {
     // Build Unsigned Tx
     const unsignedTx: types.ProtoTx = this.buildTx(msgs, baseTx);
-
     // Sign Tx
     const signedTx = await this.sign(unsignedTx, baseTx);
     // Broadcast Tx
@@ -441,6 +440,11 @@ export class Tx {
           msg = new types.MsgTransfer(txMsg.value);
           break;
       }
+      //tibc
+      case types.TxType.MsgNftTransfer: {
+        msg = new types.MsgNftTransfer(txMsg.value);
+        break;
+    }
       default: {
           throw new SdkError("not exist tx type",CODES.InvalidType);
       }

@@ -82,7 +82,7 @@ describe('Nft Tests', () => {
         .nft.transferNft(
           nft_id,
           denom_id,
-          'iaa1gytgufwqkz9tmhjgljfxd3qcwpdzymj6022q3w',
+          'iaa1cqprvn2u7xw04h0rzjxx5gu5wg4vt0664vpkvt',
           {},
           BaseTest.baseTx
         )
@@ -136,7 +136,7 @@ describe('Nft Tests', () => {
       'query Supply',
       async () => {
         await BaseTest.getClient()
-        .nft.querySupply('bczd','iaa1gytgufwqkz9tmhjgljfxd3qcwpdzymj6022q3w')
+        .nft.querySupply('nzmu','iaa1cqprvn2u7xw04h0rzjxx5gu5wg4vt0664vpkvt')
         .then(res => {
           console.log(JSON.stringify(res));
         })
@@ -151,7 +151,7 @@ describe('Nft Tests', () => {
       'query Owner',
       async () => {
         await BaseTest.getClient()
-        .nft.queryOwner('iaa14x8a7y88py9xkvkxzld3jxhgpjpm03whruzwzp','rzfj')
+        .nft.queryOwner('iaa1cqprvn2u7xw04h0rzjxx5gu5wg4vt0664vpkvt','tibc/nft/tibc-test3/nzmu')
         .then(res => {
           console.log(JSON.stringify(res));
         })
@@ -166,7 +166,7 @@ describe('Nft Tests', () => {
       'query Collection',
       async () => {
         await BaseTest.getClient()
-        .nft.queryCollection('rzfj')
+        .nft.queryCollection('nzmu')
         .then(res => {
           console.log(JSON.stringify(res));
         })
@@ -181,7 +181,7 @@ describe('Nft Tests', () => {
       'query Denom',
       async () => {
         await BaseTest.getClient()
-        .nft.queryDenom('rzfj')
+        .nft.queryDenom('tibc/nft/tibc-test3/nzmu')
         .then(res => {
           console.log(JSON.stringify(res));
         })
@@ -211,7 +211,7 @@ describe('Nft Tests', () => {
       'query NFT',
       async () => {
         await BaseTest.getClient()
-        .nft.queryNFT('rzfj','bbzrsib')
+        .nft.queryNFT('pcuz','vklojqi')
         .then(res => {
           console.log(JSON.stringify(res));
         })
