@@ -81,6 +81,14 @@ export declare class Keys {
      */
     export(name: string, keyPassword: string, keystorePassword: string, iterations?: number): string;
     /**
+     * Export private key
+     *
+     * @param name Name of the key
+     * @param keyPassword Password of the key
+     * @returns Private key string
+     */
+    exportPrivateKey(name: string, keyPassword: string): string;
+    /**
      * Delete a key
      *
      * @param name Name of the key
